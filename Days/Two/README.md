@@ -12,12 +12,14 @@ Note that since you're on a submarine, down and up affect your depth, and so the
 
 The submarine seems to already have a planned course (your puzzle input). You should probably figure out where it's going. For example:
 
+```
 forward 5
 down 5
 forward 8
 up 3
 down 8
 forward 2
+```
 
 Your horizontal position and depth both start at 0. The steps above would then modify them as follows:
 
@@ -33,6 +35,7 @@ After following these instructions, you would have a horizontal position of 15 a
 Calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
 
 Your puzzle answer was 2322630.
+
 --- Part Two ---
 
 Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.
