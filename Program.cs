@@ -33,7 +33,7 @@ namespace mekvent
         {
             foreach(var type in AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()))
             {
-                if(!type.IsInterface && typeof(IPuzzle).IsAssignableFrom(type))
+                if(!type.IsInterface && !type.IsAbstract && typeof(IPuzzle).IsAssignableFrom(type))
                 {
                     yield return (IPuzzle)Activator.CreateInstance(type);
                 }

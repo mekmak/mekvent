@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace mekvent.Days.One
 {
-    public class First : Day, IPuzzle
+    public class First : Puzzle
     {
-        public int Day => 1;
-        public int Part => 1;
+        public override int Day => 1;
+        public override int Part => 1;
 
         /*
             Given an input file of 'depth readings', return the number of times the
@@ -42,20 +42,20 @@ namespace mekvent.Days.One
             return depthIncreases.ToString();
         }
 
-        public List<TestResult> Test()
+        public override List<TestResult> Test()
         {
             return new List<TestResult>
             {
-                RunTest("Depth Increases - Test", () => ("7", CountDepthIncreases(File.ReadAllLines(@".\Days\One\test_input.txt").ToList()))),
-                RunTest("Depth Increases - Official", () => ("1301", CountDepthIncreases(File.ReadAllLines(@".\Days\One\input.txt").ToList())))
+                RunTest("Depth Increases - Test", () => ("7", CountDepthIncreases(ReadInput(true)))),
+                RunTest("Depth Increases - Official", () => ("1301", CountDepthIncreases(ReadInput(false))))
             };
         }
     }
 
-    public class Second : Day, IPuzzle
+    public class Second : Puzzle
     {
-        public int Day => 1;
-        public int Part => 2;
+        public override int Day => 1;
+        public override int Part => 2;
 
         /*
             Each input file line is a 'depth' that applies to one, two or three 'windows':
@@ -114,12 +114,12 @@ namespace mekvent.Days.One
             return depthIncreases.ToString();
         }
 
-        public List<TestResult> Test()
+        public override List<TestResult> Test()
         {
             return new List<TestResult>
             {
-                RunTest("Depth Increases - Test", () => ("5", CountDepthIncreases(File.ReadAllLines(@".\Days\One\test_input.txt").ToList()))),
-                RunTest("Depth Increases - Official", () => ("1346", CountDepthIncreases(File.ReadAllLines(@".\Days\One\input.txt").ToList())))
+                RunTest("Depth Increases - Test", () => ("5", CountDepthIncreases(ReadInput(true)))),
+                RunTest("Depth Increases - Official", () => ("1346", CountDepthIncreases(ReadInput(false))))
             };
         }
     }
