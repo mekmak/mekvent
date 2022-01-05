@@ -31,14 +31,11 @@ namespace mekvent
 
         private static IEnumerable<IPuzzle> GetPuzzles()
         {
-            foreach(var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach(var type in AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()))
             {
-                foreach(var type in assembly.GetTypes())
+                if(!type.IsInterface && typeof(IPuzzle).IsAssignableFrom(type))
                 {
-                    if(!type.IsInterface && typeof(IPuzzle).IsAssignableFrom(type))
-                    {
-                        yield return (IPuzzle)Activator.CreateInstance(type);
-                    }
+                    yield return (IPuzzle)Activator.CreateInstance(type);
                 }
             }
         }

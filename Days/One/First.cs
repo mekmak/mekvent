@@ -119,7 +119,7 @@ namespace mekvent.Days.One
             return new List<TestResult>
             {
                 RunTest("Depth Increases - Test", () => ("5", CountDepthIncreases(File.ReadAllLines(@".\Days\One\test_input.txt").ToList()))),
-                RunTest("Depth Increases - Test", () => ("1346", CountDepthIncreases(File.ReadAllLines(@".\Days\One\input.txt").ToList())))
+                RunTest("Depth Increases - Official", () => ("1346", CountDepthIncreases(File.ReadAllLines(@".\Days\One\input.txt").ToList())))
             };
         }
     }
