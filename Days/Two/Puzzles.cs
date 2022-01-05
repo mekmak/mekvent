@@ -71,7 +71,7 @@ namespace mekvent.Days.Two
                         depth -= command.Amount;
                         if(depth < 0)
                         {
-                            throw new Exception($"Depth is above zero (last command: {command.Command} {command.Amount})");
+                            throw new Exception($"Depth is below zero (last command: {command.Command} {command.Amount})");
                         }
                         break;
                     case SubCommand.CommandType.Forward:
