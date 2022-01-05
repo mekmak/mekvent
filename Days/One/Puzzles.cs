@@ -10,10 +10,6 @@ namespace mekvent.Days.One
         public override int Day => 1;
         public override int Part => 1;
 
-        /*
-            Given an input file of 'depth readings', return the number of times the
-            next 'depth' larger that the last 'depth'
-        */
         public string CountDepthIncreases(List<string> depths)
         {            
             int depthIncreases = 0;
@@ -57,25 +53,6 @@ namespace mekvent.Days.One
         public override int Day => 1;
         public override int Part => 2;
 
-        /*
-            Each input file line is a 'depth' that applies to one, two or three 'windows':
-                199  A      
-                200  A B    
-                208  A B C  
-                210    B C D
-                200  E   C D
-                207  E F   D
-                240  E F G  
-                269    F G H
-                260      G H
-                263        H
-            
-            A depth measurement for a given 'window' is the sum of three partial measurements. Note that the input
-            file does not contain the 'windows' - just the depths. We are to assume that there are always three per window.
-
-            Count the number of times a 'window' has a larger sum than the previous 'window'
-            
-        */
         public string CountDepthIncreases(List<string> depths)
         {            
             int depthIncreases = 0;
