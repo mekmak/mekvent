@@ -8,7 +8,7 @@ namespace mekvent.Days.One
     public class First : Day, IPuzzle
     {
         public int Day => 1;
-        public int Puzzle => 1;
+        public int Part => 1;
 
         /*
             Given an input file of 'depth readings', return the number of times the
@@ -55,7 +55,7 @@ namespace mekvent.Days.One
     public class Second : Day, IPuzzle
     {
         public int Day => 1;
-        public int Puzzle => 2;
+        public int Part => 2;
 
         /*
             Each input file line is a 'depth' that applies to one, two or three 'windows':

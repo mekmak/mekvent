@@ -5,7 +5,7 @@ namespace mekvent.Days
     public interface IPuzzle
     {
         int Day {get;}
-        int Puzzle {get;}
+        int Part {get;}
         List<TestResult> Test();
     }
 }
