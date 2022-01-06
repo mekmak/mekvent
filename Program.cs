@@ -12,18 +12,18 @@ namespace mekvent
         {
             foreach(var puzzle in GetPuzzles().OrderBy(p => p.Day).ThenBy(p => p.Part))
             {
-                Console.WriteLine($"--- Day {puzzle.Day}: Part {puzzle.Part}");
+                Console.WriteLine($"--- Day {puzzle.Day}, Part {puzzle.Part}: '{puzzle.Name}'");
                 foreach(var tr in puzzle.Test())
                 {
                     if(tr.Passed)
                     {
-                        Console.WriteLine($"Test '{tr.TestName}' passed");
+                        Console.WriteLine($"\tTest '{tr.TestName}' passed");
                     }
                     else
                     {
-                        Console.WriteLine($"Test '{tr.TestName}' failed: {tr.ErrorMessage}");
-                        Console.WriteLine($"\tExpected:\t{tr.Expected}");
-                        Console.WriteLine($"\tActual:  \t{tr.Actual}");
+                        Console.WriteLine($"\tTest '{tr.TestName}' failed: {tr.ErrorMessage}");
+                        Console.WriteLine($"\t\tExpected:\t{tr.Expected}");
+                        Console.WriteLine($"\t\tActual:  \t{tr.Actual}");
                     }
                 }
             }

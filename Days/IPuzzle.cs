@@ -6,6 +6,7 @@ namespace mekvent.Days
     {
         int Day {get;}
         int Part {get;}
+        string Name {get;}
         List<TestResult> Test();
     }
 }

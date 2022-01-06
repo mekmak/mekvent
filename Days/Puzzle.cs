@@ -24,6 +24,7 @@ namespace mekvent.Days
 
         public abstract int Day {get;}
         public abstract int Part {get;}
+        public abstract string Name {get;}
         public abstract List<TestResult> Test();
 
         private string GetDayAsWord(int day)

@@ -9,6 +9,7 @@ namespace mekvent.Days.One
     {
         public override int Day => 1;
         public override int Part => 1;
+        public override string Name => "Depth Increases";
 
         public string CountDepthIncreases(List<string> depths)
         {            
@@ -42,8 +43,8 @@ namespace mekvent.Days.One
         {
             return new List<TestResult>
             {
-                RunTest("Depth Increases - Test", () => ("7", CountDepthIncreases(ReadInput(true)))),
-                RunTest("Depth Increases - Official", () => ("1301", CountDepthIncreases(ReadInput(false))))
+                RunTest("Test", () => ("7", CountDepthIncreases(ReadInput(true)))),
+                RunTest("Official", () => ("1301", CountDepthIncreases(ReadInput(false))))
             };
         }
     }
@@ -52,6 +53,7 @@ namespace mekvent.Days.One
     {
         public override int Day => 1;
         public override int Part => 2;
+        public override string Name => "Depth Increases";
 
         public string CountDepthIncreases(List<string> depths)
         {            
@@ -95,8 +97,8 @@ namespace mekvent.Days.One
         {
             return new List<TestResult>
             {
-                RunTest("Depth Increases - Test", () => ("5", CountDepthIncreases(ReadInput(true)))),
-                RunTest("Depth Increases - Official", () => ("1346", CountDepthIncreases(ReadInput(false))))
+                RunTest("Test", () => ("5", CountDepthIncreases(ReadInput(true)))),
+                RunTest("Official", () => ("1346", CountDepthIncreases(ReadInput(false))))
             };
         }
     }

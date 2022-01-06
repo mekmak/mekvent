@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace mekvent.Days.Two
 {
@@ -54,6 +52,7 @@ namespace mekvent.Days.Two
     {
         public override int Day => 2;
         public override int Part => 1;
+        public override string Name => "Final Position";
 
         private int GetFinalPosition(List<SubCommand> commands)
         {
@@ -89,8 +88,8 @@ namespace mekvent.Days.Two
         {
             return new List<TestResult>
             {
-                RunTest("Final Position - Test", () => ("150", GetFinalPosition(ReadInput<SubCommand>(true, SubCommand.Parse)).ToString())),
-                RunTest("Final Position - Official", () => ("2322630", GetFinalPosition(ReadInput<SubCommand>(false, SubCommand.Parse)).ToString()))
+                RunTest("Test", () => ("150", GetFinalPosition(ReadInput<SubCommand>(true, SubCommand.Parse)).ToString())),
+                RunTest("Official", () => ("2322630", GetFinalPosition(ReadInput<SubCommand>(false, SubCommand.Parse)).ToString()))
             };
         }
     }
@@ -99,6 +98,7 @@ namespace mekvent.Days.Two
     {
         public override int Day => 2;
         public override int Part => 2;
+        public override string Name => "Final Position";
 
         private int GetFinalPosition(List<SubCommand> commands)
         {
@@ -132,8 +132,8 @@ namespace mekvent.Days.Two
         {
             return new List<TestResult>
             {
-                RunTest("Final Position - Test", () => ("900", GetFinalPosition(ReadInput<SubCommand>(true, SubCommand.Parse)).ToString())),
-                RunTest("Final Position - Official", () => ("2105273490", GetFinalPosition(ReadInput<SubCommand>(false, SubCommand.Parse)).ToString()))
+                RunTest("Test", () => ("900", GetFinalPosition(ReadInput<SubCommand>(true, SubCommand.Parse)).ToString())),
+                RunTest("Official", () => ("2105273490", GetFinalPosition(ReadInput<SubCommand>(false, SubCommand.Parse)).ToString()))
             };
         }
     }
