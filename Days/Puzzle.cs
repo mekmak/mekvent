@@ -77,7 +77,7 @@ namespace mekvent.Days
             }
             catch(Exception e)
             {
-                return TestResult.Fail(testName, "no error", "error", $"Error: {e.Message}");
+                return TestResult.Fail(testName, "no error", "error", e);
             }
         }
     }

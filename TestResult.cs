@@ -1,3 +1,5 @@
+using System;
+
 namespace mekvent
 {
     public class TestResult
@@ -18,5 +20,10 @@ namespace mekvent
 
         public static TestResult Pass(string testName) => new TestResult(testName, null, null, null);
         public static TestResult Fail(string testName, string expected, string actual, string errorMessage) => new TestResult(testName, expected, actual, errorMessage);
+        public static TestResult Fail(string testName, string expected, string actual, Exception exception)
+        {
+            var errorMessage = $"Error: {exception.Message}\n{exception.StackTrace}\n";
+            return Fail(testName, expected, actual, errorMessage);
+        }
     }
 }
