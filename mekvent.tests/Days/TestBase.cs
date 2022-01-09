@@ -41,7 +41,7 @@ namespace mekvent.tests.Days
         {
             string dayWord = GetDayAsWord(day);
             string fileName = isTestFile ? $"{dayWord.ToLower()}_test" : $"{dayWord.ToLower()}";
-            return $".\\Days\\inputs\\{fileName}.txt";
+            return Path.Combine("Days", "inputs", $"{fileName}.txt");
         }
 
         protected List<string> ReadInput(int day, bool useTestFile)
