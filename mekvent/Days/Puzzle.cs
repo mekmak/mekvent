@@ -46,7 +46,7 @@ namespace mekvent.Days
         {
             string day = GetDayAsWord(Day);
             string fileName = isTestFile ? "test_input" : "input";
-            return $".\\Days\\{day}\\{fileName}.txt";
+            return $".\\mekvent\\Days\\{day}\\{fileName}.txt";
         }
 
         protected List<string> ReadInput(bool useTestFile)
