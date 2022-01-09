@@ -193,12 +193,8 @@ namespace mekvent.Days.Four
         }
     }
 
-    public class First : Puzzle
+    public class PartOne
     {
-        public override int Day => 4;
-        public override int Part => 1;
-        public override string Name => "Giant Squid";
-
         public int GetFinalScore(List<string> input)
         {
             (List<int> called, List<Board> boards) = BoardParser.ParseInput(5, input);
@@ -221,23 +217,10 @@ namespace mekvent.Days.Four
 
             throw new Exception($"No board won after all numbers called");
         }
-
-        public override List<TestResult> Test()
-        {            
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("4512", GetFinalScore(ReadInput(true)).ToString())),
-                RunTest("Official", () => ("35711", GetFinalScore(ReadInput(false)).ToString()))
-            };
-        }
     }
 
-    public class Second : Puzzle
+    public class PartTwo
     {
-        public override int Day => 4;
-        public override int Part => 2;
-        public override string Name => "Giant Squid";
-
         public int GetFinalScore(List<string> input)
         {
             (List<int> called, List<Board> boards) = BoardParser.ParseInput(5, input);
@@ -272,15 +255,6 @@ namespace mekvent.Days.Four
             }
 
             throw new Exception($"Not all boards eventually won");
-        }
-
-        public override List<TestResult> Test()
-        {            
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("1924", GetFinalScore(ReadInput(true)).ToString())),
-                RunTest("Official", () => ("5586", GetFinalScore(ReadInput(false)).ToString()))
-            };
         }
     }
 }

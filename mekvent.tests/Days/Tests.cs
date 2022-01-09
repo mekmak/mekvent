@@ -84,6 +84,28 @@ namespace mekvent.tests.Days
 
         #region Day Four
 
+        [Theory]
+        [InlineData(true, 4512)]
+        [InlineData(false, 35711)]
+        public void DayFour_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Four.PartOne();
+            var input = ReadInput(4, isTestFile);
+            var actual = part.GetFinalScore(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true, 1924)]
+        [InlineData(false, 5586)]
+        public void DayFour_PartTwo(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Four.PartTwo();
+            var input = ReadInput(4, isTestFile);
+            var actual = part.GetFinalScore(input);
+            Assert.Equal(expected, actual);
+        }
+
         #endregion
 
         #region Day Five
