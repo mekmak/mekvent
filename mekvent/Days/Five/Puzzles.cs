@@ -211,47 +211,23 @@ namespace mekvent.Days.Five
         }
     }
 
-    public class First : Puzzle
+    public class PartOne
     {
-        public override int Day => 5;
-        public override int Part => 1;
-        public override string Name => "Hydrothermal Venture";
-
-        private int NumOverlappingLines(List<VentRange> input)
+        public int NumOverlappingLines(List<string> input)
         {
-            var board = VentBoard.Init(input);
+            var ranges = input.Select(VentRange.Parse).ToList();
+            var board = VentBoard.Init(ranges);
             return board.Where(c => c.NumVentsWithoutDiag > 1).Count();
-        }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("5", NumOverlappingLines(ReadInput(true, VentRange.Parse)).ToString())),
-                RunTest("Official", () => ("5197", NumOverlappingLines(ReadInput(false, VentRange.Parse)).ToString()))
-            };
         }
     }
 
-    public class Second : Puzzle
+    public class PartTwo
     {
-        public override int Day => 5;
-        public override int Part => 2;
-        public override string Name => "Hydrothermal Venture";
-
-        private int NumOverlappingLines(List<VentRange> input)
+        public int NumOverlappingLines(List<string> input)
         {
-            var board = VentBoard.Init(input);
+            var ranges = input.Select(VentRange.Parse).ToList();
+            var board = VentBoard.Init(ranges);
             return board.Where(c => c.NumVentsWithDiag > 1).Count();
-        }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("12", NumOverlappingLines(ReadInput(true, VentRange.Parse)).ToString())),
-                RunTest("Official", () => ("18605", NumOverlappingLines(ReadInput(false, VentRange.Parse)).ToString()))
-            };
         }
     }
 }

@@ -110,6 +110,28 @@ namespace mekvent.tests.Days
 
         #region Day Five
 
+        [Theory]
+        [InlineData(true, 5)]
+        [InlineData(false, 5197)]
+        public void DayFive_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Five.PartOne();
+            var input = ReadInput(5, isTestFile);
+            var actual = part.NumOverlappingLines(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true, 12)]
+        [InlineData(false, 18605)]
+        public void DayFive_PartTwo(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Five.PartTwo();
+            var input = ReadInput(5, isTestFile);
+            var actual = part.NumOverlappingLines(input);
+            Assert.Equal(expected, actual);
+        }
+
         #endregion
     }
 }
