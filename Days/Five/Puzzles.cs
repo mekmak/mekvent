@@ -31,23 +31,11 @@ namespace mekvent.Days.Five
             }
 
             return new Point(x, y);
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Point point &&
-                   X == point.X &&
-                   Y == point.Y;
-        }
+        }        
 
         public override string ToString()
         {
             return $"{X},{Y}";
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(X, Y);
         }
     }
 
