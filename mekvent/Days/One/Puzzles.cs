@@ -1,17 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace mekvent.Days.One
 {
-    public class First : Puzzle
+    public class PartOne
     {
-        public override int Day => 1;
-        public override int Part => 1;
-        public override string Name => "Depth Increases";
-
-        public string CountDepthIncreases(List<string> depths)
+        public int CountDepthIncreases(List<string> depths)
         {            
             int depthIncreases = 0;
             int lastDepth = int.MinValue;
@@ -36,26 +31,13 @@ namespace mekvent.Days.One
                 lastDepth = currentDepth;
             }
 
-            return depthIncreases.ToString();
-        }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("7", CountDepthIncreases(ReadInput(true)))),
-                RunTest("Official", () => ("1301", CountDepthIncreases(ReadInput(false))))
-            };
+            return depthIncreases;
         }
     }
 
-    public class Second : Puzzle
+    public class PartTwo
     {
-        public override int Day => 1;
-        public override int Part => 2;
-        public override string Name => "Depth Increases";
-
-        public string CountDepthIncreases(List<string> depths)
+        public int CountDepthIncreases(List<string> depths)
         {            
             int depthIncreases = 0;
             const int windowSize = 3;
@@ -90,16 +72,7 @@ namespace mekvent.Days.One
                 currentIndex = currentIndex == currentWindow.Length - 1 ? 0 : currentIndex + 1;
             }
 
-            return depthIncreases.ToString();
-        }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("5", CountDepthIncreases(ReadInput(true)))),
-                RunTest("Official", () => ("1346", CountDepthIncreases(ReadInput(false))))
-            };
+            return depthIncreases;
         }
     }
 }
