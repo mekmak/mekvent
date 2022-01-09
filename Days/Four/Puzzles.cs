@@ -118,13 +118,7 @@ namespace mekvent.Days.Four
 
     public class BoardParser
     {
-        private readonly int _size;
-        public BoardParser(int size)
-        {
-            _size = size;
-        }
-
-        public (List<int>, List<Board>) ParseInput(List<string> lines)
+        public static (List<int>, List<Board>) ParseInput(int size, List<string> lines)
         {
             List<int> calledNums = lines.First()
                 .Split(",", StringSplitOptions.RemoveEmptyEntries)
@@ -133,7 +127,7 @@ namespace mekvent.Days.Four
 
             var boards = new List<Board>();
 
-            Board currentBoard = new Board(_size);
+            Board currentBoard = new Board(size);
             int row = 0;
             bool expectingNewLine = true;
 
@@ -156,21 +150,21 @@ namespace mekvent.Days.Four
                 }
 
                 List<int> columns = line.Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
-                if(columns.Count != _size)
+                if(columns.Count != size)
                 {
-                    throw new Exception($"Expecting {_size} columns but got {columns.Count}: {line}");
+                    throw new Exception($"Expecting {size} columns but got {columns.Count}: {line}");
                 }
 
-                for(int col = 0; col < _size; col++)
+                for(int col = 0; col < size; col++)
                 {
                     currentBoard.SetCell(row, col, columns[col]);
                 }
                 
-                if(row == _size - 1)
+                if(row == size - 1)
                 {
                     boards.Add(currentBoard);
 
-                    currentBoard = new Board(_size);
+                    currentBoard = new Board(size);
                     row = 0;
                     expectingNewLine = true;
                 }
@@ -183,7 +177,7 @@ namespace mekvent.Days.Four
             return (calledNums, boards);
         }
 
-        public string FormatBoard(Board board)
+        public static string FormatBoard(Board board)
         {
             var sb = new StringBuilder();
             for(int row = 0; row < board.Size; row++)
@@ -207,8 +201,7 @@ namespace mekvent.Days.Four
 
         public int GetFinalScore(List<string> input)
         {
-            var boardParser = new BoardParser(5);
-            (List<int> called, List<Board> boards) = boardParser.ParseInput(input);
+            (List<int> called, List<Board> boards) = BoardParser.ParseInput(5, input);
 
             foreach(var num in called)
             {
@@ -247,8 +240,7 @@ namespace mekvent.Days.Four
 
         public int GetFinalScore(List<string> input)
         {
-            var boardParser = new BoardParser(5);
-            (List<int> called, List<Board> boards) = boardParser.ParseInput(input);
+            (List<int> called, List<Board> boards) = BoardParser.ParseInput(5, input);
 
             var boardWinners = boards.Select(b => false).ToArray();
             var boardWinnerCount = 0;

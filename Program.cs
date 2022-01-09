@@ -10,7 +10,7 @@ namespace mekvent
     {
         static void Main(string[] args)
         {
-            foreach(var puzzle in GetPuzzles().OrderBy(p => p.Day).ThenBy(p => p.Part))
+            foreach(var puzzle in GetPuzzles().OrderByDescending(p => p.Day).ThenByDescending(p => p.Part).Take(4))
             {
                 Console.WriteLine($"--- Day {puzzle.Day}, Part {puzzle.Part}: '{puzzle.Name}'");
                 foreach(var tr in puzzle.Test())
