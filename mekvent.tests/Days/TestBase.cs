@@ -46,19 +46,9 @@ namespace mekvent.tests.Days
 
         protected List<string> ReadInput(int day, bool useTestFile)
         {
-            return ReadInput(day, useTestFile, s => s);
-        }
-
-        protected List<T> ReadInput<T>(int day, bool useTestFile, Func<string, T> parser)
-        {
             string filePath = ResolveFileName(day, useTestFile);
-            return ReadInput(filePath, parser);
-        }
-
-        protected List<T> ReadInput<T>(string filePath, Func<string, T> parser)
-        {
             var lines = File.ReadAllLines(filePath);
-            return lines.Select(parser).ToList();
+            return lines.ToList();
         }
     }
 }

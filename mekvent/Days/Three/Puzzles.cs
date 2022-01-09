@@ -4,13 +4,9 @@ using System.Linq;
 
 namespace mekvent.Days.Three
 {
-    public class First : Puzzle
+    public class PartOne
     {
-        public override int Day => 3;
-        public override int Part => 1;        
-        public override string Name => "Power Consumption";
-
-        private int CalculateConsumption(List<string> lines)
+        public int CalculateConsumption(List<string> lines)
         {
             if(lines == null || !lines.Any())
             {
@@ -54,24 +50,11 @@ namespace mekvent.Days.Three
 
             return gamma * epsilon;
         }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("198", CalculateConsumption(ReadInput(true)).ToString())),
-                RunTest("Official", () => ("3885894", CalculateConsumption(ReadInput(false)).ToString()))
-            };
-        }
     }
 
-    public class Second : Puzzle
+    public class PartTwo
     {
-        public override int Day => 3;
-        public override int Part => 2;
-        public override string Name => "Life Support Rating";
-
-        private int CalculateLifeSupport(List<string> lines)
+        public int CalculateLifeSupport(List<string> lines)
         {
             string GetRatingName(bool isOxygen) => isOxygen ? "oxygen" : "co2";
 
@@ -159,15 +142,6 @@ namespace mekvent.Days.Three
             string c02Binary = FindRating(lines, false);
 
             return BinToDec(oxygenBinary) * BinToDec(c02Binary);
-        }
-
-        public override List<TestResult> Test()
-        {
-            return new List<TestResult>
-            {
-                RunTest("Test", () => ("230", CalculateLifeSupport(ReadInput(true)).ToString())),
-                RunTest("Official", () => ("4375225", CalculateLifeSupport(ReadInput(false)).ToString()))
-            };
         }
     }
 }
