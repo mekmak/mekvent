@@ -1,3 +1,4 @@
+using System.Linq;
 using Xunit;
 
 namespace mekvent.tests.Days
@@ -130,6 +131,32 @@ namespace mekvent.tests.Days
             var input = ReadInput(5, isTestFile);
             var actual = part.NumOverlappingLines(input);
             Assert.Equal(expected, actual);
+        }
+
+        #endregion
+
+        #region Day 6
+
+        [Theory]
+        [InlineData(true,  5934)]
+        [InlineData(false, 356190)]
+        public void DaySix_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Six.PartOne();
+            var input = ReadInput(6, isTestFile).Single();
+            int actual = part.NumOfFish(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(true,  26984457539)]
+        [InlineData(false, 1617359101538)]
+        public void DaySix_PartTwo(bool isTestFile, decimal expected)
+        {
+            var part = new mekvent.Days.Six.PartTwo();
+            var input = ReadInput(6, isTestFile).Single();
+            decimal actual = part.NumOfFish(input);
+            Assert.Equal(expected, actual);            
         }
 
         #endregion
