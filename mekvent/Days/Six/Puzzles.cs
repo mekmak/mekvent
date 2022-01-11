@@ -46,9 +46,9 @@ namespace mekvent.Days.Six
             decimal[] fishCounts = new decimal[9];
             foreach(var f in fish)
             {
-                if(f > 8)
+                if(f < 0 || f > 8)
                 {
-                    throw new Exception($"Fish age cannot be greater than 8: {f}");
+                    throw new Exception($"Fish age must be 0-8: {f}");
                 }
 
                 fishCounts[f] += 1;
