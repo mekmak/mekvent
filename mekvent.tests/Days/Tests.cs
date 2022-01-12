@@ -160,5 +160,31 @@ namespace mekvent.tests.Days
         }
 
         #endregion
+
+        #region Day Seven
+
+        [Theory]
+        [InlineData(true, 37)]
+        [InlineData(false, 355592)]
+        public void DaySeven_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Seven.PartOne();
+            var input = ReadInput(7, isTestFile).Single();
+            var actual = part.MinFuelCost(input);
+            Assert.Equal(expected, actual);    
+        }
+
+        [Theory]
+        [InlineData(true, 168)]
+        [InlineData(false, 101618069)]
+        public void DaySeven_PartTwo(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Seven.PartTwo();
+            var input = ReadInput(7, isTestFile).Single();
+            var actual = part.MinFuelCost(input);
+            Assert.Equal(expected, actual);    
+        }
+
+        #endregion
     }
 }
