@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -135,7 +137,7 @@ namespace mekvent.tests.Days
 
         #endregion
 
-        #region Day 6
+        #region Day Six
 
         [Theory]
         [InlineData(true,  5934)]
