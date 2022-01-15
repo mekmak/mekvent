@@ -219,5 +219,31 @@ namespace mekvent.tests.Days
         }
 
         #endregion
+
+        #region Day Ten
+
+        [Theory]
+        [InlineData(true, 26397)]
+        [InlineData(false, 392367)]
+        public void DayTen_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Ten.PartOne();
+            var input = ReadInput(10, isTestFile);
+            var actual = part.CalculateSyntaxErrorScore(input);
+            Assert.Equal(expected, actual); 
+        }
+
+        [Theory]
+        [InlineData(true, 288957)]
+        [InlineData(false, 2192104158)]
+        public void DayTen_PartTwo(bool isTestFile, decimal expected)
+        {
+            var part = new mekvent.Days.Ten.PartTwo();
+            var input = ReadInput(10, isTestFile);
+            var actual = part.FindMiddleCompletionScore(input);
+            Assert.Equal(expected, actual); 
+        }
+
+        #endregion
     }
 }
