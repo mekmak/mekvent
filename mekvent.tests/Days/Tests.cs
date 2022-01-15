@@ -2,11 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace mekvent.tests.Days
 {
     public class Tests : TestBase
     {
+        public Tests(ITestOutputHelper output) : base(output)
+        {
+        }
+
         #region Day One
 
         [Theory]
@@ -184,6 +189,32 @@ namespace mekvent.tests.Days
             var part = new mekvent.Days.Seven.PartTwo();
             var input = ReadInput(7, isTestFile).Single();
             var actual = part.MinFuelCost(input);
+            Assert.Equal(expected, actual);    
+        }
+
+        #endregion
+
+        #region Day Nine
+
+        [Theory]
+        [InlineData(true, 15)]
+        [InlineData(false, 603)]
+        public void DayNine_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Nine.PartOne();
+            var input = ReadInput(9, isTestFile);
+            var actual = part.CalculateRiskLevel(input);
+            Assert.Equal(expected, actual);    
+        }
+
+        [Theory]
+        [InlineData(true, 1134)]
+        [InlineData(false, 786780)]
+        public void DayNine_PartTwo(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Nine.PartTwo();
+            var input = ReadInput(9, isTestFile);
+            var actual = part.CalculateBasinSize(input);
             Assert.Equal(expected, actual);    
         }
 

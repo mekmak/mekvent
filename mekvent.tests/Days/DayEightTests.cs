@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using mekvent.Days.Eight;
+using Xunit.Abstractions;
 
 namespace mekvent.tests.Days
 {
     public class DayEightTests : TestBase
     {
+        public DayEightTests(ITestOutputHelper output) : base(output)
+        {
+        }
+
         [Theory]
         [InlineData("a,b,c,e,f,g", 0)]
         [InlineData("b,a,c,g,f,e", 0)]
