@@ -245,5 +245,70 @@ namespace mekvent.tests.Days
         }
 
         #endregion
+
+        #region Day Eleven
+
+        [Fact]
+        public void DayEleven_PartOne_Mini()
+        {
+            var inputs = new List<string>
+            {
+                "11111",
+                "19991",
+                "19191",
+                "19991",
+                "11111"
+            };
+
+            var part = new mekvent.Days.Eleven.PartOne();
+            var actual = part.CalculateTotalFlashes(inputs, 2);
+            Assert.Equal(9, actual);
+        }
+
+        [Theory]
+        [InlineData(true, 1656)]
+        [InlineData(false, 1625)]
+        public void DayEleven_PartOne(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Eleven.PartOne();
+            var input = ReadInput(11, isTestFile);
+            var actual = part.CalculateTotalFlashes(input, 100);
+            Assert.Equal(expected, actual); 
+        }
+
+        [Fact]
+        public void DayEleven_PartTwo_Mini()
+        {
+            var inputs = new List<string>
+            {
+                "5877777777",
+                "8877777777",
+                "7777777777",
+                "7777777777",
+                "7777777777",
+                "7777777777",
+                "7777777777",
+                "7777777777",
+                "7777777777",
+                "7777777777"
+            };
+
+            var part = new mekvent.Days.Eleven.PartTwo();
+            var actual = part.FirstSimultaneousFlashStep(inputs);
+            Assert.Equal(2, actual);
+        }
+
+        [Theory]
+        [InlineData(true, 195)]
+        [InlineData(false, 244)]
+        public void DayEleven_PartTwo(bool isTestFile, int expected)
+        {
+            var part = new mekvent.Days.Eleven.PartTwo();
+            var input = ReadInput(11, isTestFile);
+            var actual = part.FirstSimultaneousFlashStep(input);
+            Assert.Equal(expected, actual); 
+        }
+
+        #endregion
     }
 }

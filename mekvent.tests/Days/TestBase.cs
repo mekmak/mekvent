@@ -41,7 +41,17 @@ namespace mekvent.tests.Days
             "Seven",
             "Eight",
             "Nine",
-            "Ten"
+            "Ten",
+            "Eleven",
+            "Twelve",
+            "Thirteen",
+            "Fourteen",
+            "Fifteen",
+            "Sixteen",
+            "Seventeen",
+            "Eighteen",
+            "Nineteen",
+            "Twenty"
         };
 
         private string GetDayAsWord(int day)
@@ -65,7 +75,7 @@ namespace mekvent.tests.Days
             string fileName = isTestFile ? $"{dayWord.ToLower()}_test" : $"{dayWord.ToLower()}";
             return Path.Combine("Days", "inputs", $"{fileName}.txt");
         }
-
+        
         protected List<string> ReadInput(int day, bool useTestFile)
         {
             string filePath = ResolveFileName(day, useTestFile);
