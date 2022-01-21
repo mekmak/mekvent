@@ -4,7 +4,7 @@ namespace mekvent.Days
 {
     public static class Enum
     {
-        public static T ParseEnum<T>(string input)
+        public static T Parse<T>(string input)
         {
             if(!System.Enum.TryParse(typeof(T), input, true, out object e))
             {

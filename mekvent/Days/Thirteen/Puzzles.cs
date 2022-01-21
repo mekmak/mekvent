@@ -17,7 +17,7 @@ namespace mekvent.Days.Thirteen
         private int NumRows => _dots?.GetLength(0) ?? 0;
         private int NumCols => _dots?.GetLength(1) ?? 0;
 
-        public void Fold(FoldInstruction instruction)
+        public Paper Fold(FoldInstruction instruction)
         {
             if(!IsValid(instruction))
             {
@@ -42,7 +42,7 @@ namespace mekvent.Days.Thirteen
                 newDots[targetRow, targetCol] = _dots[row, col] | _dots[targetRow, targetCol];
             }
 
-            _dots = newDots;
+            return new Paper(newDots);
         }
 
         public int VisibleDotCount => this.Count(b => b);
@@ -148,7 +148,7 @@ namespace mekvent.Days.Thirteen
             var axisCoord = line.Replace("fold along ", "").Split("=", StringSplitOptions.RemoveEmptyEntries);
             return new FoldInstruction
             {
-                Axis = Enum.ParseEnum<Axis>(axisCoord[0]),
+                Axis = Enum.Parse<Axis>(axisCoord[0]),
                 Coordinate = int.Parse(axisCoord[1])
             };
         }
@@ -181,8 +181,8 @@ namespace mekvent.Days.Thirteen
         public int GetVisibleDots(List<string> inputs)
         {
             (Paper paper, List<FoldInstruction> instructions) = InputParser.ParseInput(inputs);
-            paper.Fold(instructions.First());
-            return paper.VisibleDotCount;
+            var folded = paper.Fold(instructions.First());
+            return folded.VisibleDotCount;
         }
     }
 
@@ -193,7 +193,7 @@ namespace mekvent.Days.Thirteen
             (Paper paper, List<FoldInstruction> instructions) = InputParser.ParseInput(inputs);
             foreach(var fi in instructions)
             {
-                paper.Fold(fi);
+                paper = paper.Fold(fi);
             }
 
             // this puzzle involves printing out the sheet

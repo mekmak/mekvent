@@ -35,7 +35,7 @@ namespace mekvent.Days.Two
                 throw new ArgumentException($"Input line must have exactly two parts: {inputLine}");
             }
 
-            var command = Enum.ParseEnum<CommandType>(parts[0]);
+            var command = Enum.Parse<CommandType>(parts[0]);
             if(!int.TryParse(parts[1], out int amount))
             {
                 throw new ArgumentException($"Could not parse amount {parts[1]}");
