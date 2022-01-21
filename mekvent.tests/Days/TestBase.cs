@@ -69,16 +69,16 @@ namespace mekvent.tests.Days
             return _numToWord[day];
         }
 
-        private string ResolveFileName(int day, bool isTestFile)
+        private string ResolveFileName(int day, int fileNumber)
         {
             string dayWord = GetDayAsWord(day);
-            string fileName = isTestFile ? $"{dayWord.ToLower()}_test" : $"{dayWord.ToLower()}";
-            return Path.Combine("Days", "inputs", $"{fileName}.txt");
+            string fileName = $"{dayWord.ToLower()}_{fileNumber}.txt";
+            return Path.Combine("Days", "inputs", fileName);
         }
         
-        protected List<string> ReadInput(int day, bool useTestFile)
+        protected List<string> ReadInput(int day, int fileNumber)
         {
-            string filePath = ResolveFileName(day, useTestFile);
+            string filePath = ResolveFileName(day, fileNumber);
             var lines = File.ReadAllLines(filePath);
             return lines.ToList();
         }

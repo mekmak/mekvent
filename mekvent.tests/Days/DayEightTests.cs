@@ -110,22 +110,22 @@ namespace mekvent.tests.Days
         }
 
         [Theory]
-        [InlineData(true, 26)]
-        [InlineData(false, 519)]
-        public void DayEight_PartOne(bool isTestFile, int expected)
+        [InlineData(1, 26)]
+        [InlineData(2, 519)]
+        public void DayEight_PartOne(int fileNumber, int expected)
         {
             var part = new PartOne();
-            var actual = part.CountDigits(ReadInput(8, isTestFile));
+            var actual = part.CountDigits(ReadInput(8, fileNumber));
             Assert.Equal(expected, actual);
         }
 
         [Theory]
-        [InlineData(true, 61229)]
-        [InlineData(false, 1027483)]
-        public void DayEight_PartTwo(bool isTestFile, int expected)
+        [InlineData(1, 61229)]
+        [InlineData(2, 1027483)]
+        public void DayEight_PartTwo(int fileNumber, int expected)
         {
             var part = new PartTwo();
-            var actual = part.OutputSum(ReadInput(8, isTestFile));
+            var actual = part.OutputSum(ReadInput(8, fileNumber));
             Assert.Equal(expected, actual);
         }
 
