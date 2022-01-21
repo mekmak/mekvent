@@ -115,7 +115,7 @@ namespace mekvent.tests.Days
         public void DayEight_PartOne(int fileNumber, int expected)
         {
             var part = new PartOne();
-            var actual = part.CountDigits(ReadInput(8, fileNumber));
+            var actual = part.CountDigits(ReadInput(fileNumber));
             Assert.Equal(expected, actual);
         }
 
@@ -125,7 +125,7 @@ namespace mekvent.tests.Days
         public void DayEight_PartTwo(int fileNumber, int expected)
         {
             var part = new PartTwo();
-            var actual = part.OutputSum(ReadInput(8, fileNumber));
+            var actual = part.OutputSum(ReadInput(fileNumber));
             Assert.Equal(expected, actual);
         }
 

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -20,7 +18,7 @@ namespace mekvent.tests.Days
         public void DayOne_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.One.PartOne();
-            var input = ReadInput(1, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CountDepthIncreases(input);
             Assert.Equal(expected, actual);
         }
@@ -31,7 +29,7 @@ namespace mekvent.tests.Days
         public void DayOne_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.One.PartTwo();
-            var input = ReadInput(1, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CountDepthIncreases(input);
             Assert.Equal(expected, actual);
         }
@@ -46,7 +44,7 @@ namespace mekvent.tests.Days
         public void DayTwo_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Two.PartOne();
-            var input = ReadInput(2, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetFinalPosition(input);
             Assert.Equal(expected, actual);
         }
@@ -57,7 +55,7 @@ namespace mekvent.tests.Days
         public void DayTwo_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Two.PartTwo();
-            var input = ReadInput(2, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetFinalPosition(input);
             Assert.Equal(expected, actual);
         }
@@ -72,7 +70,7 @@ namespace mekvent.tests.Days
         public void DayThree_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Three.PartOne();
-            var input = ReadInput(3, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateConsumption(input);
             Assert.Equal(expected, actual);
         }
@@ -83,7 +81,7 @@ namespace mekvent.tests.Days
         public void DayThree_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Three.PartTwo();
-            var input = ReadInput(3, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateLifeSupport(input);
             Assert.Equal(expected, actual);
         }
@@ -98,7 +96,7 @@ namespace mekvent.tests.Days
         public void DayFour_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Four.PartOne();
-            var input = ReadInput(4, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetFinalScore(input);
             Assert.Equal(expected, actual);
         }
@@ -109,7 +107,7 @@ namespace mekvent.tests.Days
         public void DayFour_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Four.PartTwo();
-            var input = ReadInput(4, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetFinalScore(input);
             Assert.Equal(expected, actual);
         }
@@ -124,7 +122,7 @@ namespace mekvent.tests.Days
         public void DayFive_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Five.PartOne();
-            var input = ReadInput(5, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.NumOverlappingLines(input);
             Assert.Equal(expected, actual);
         }
@@ -135,7 +133,7 @@ namespace mekvent.tests.Days
         public void DayFive_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Five.PartTwo();
-            var input = ReadInput(5, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.NumOverlappingLines(input);
             Assert.Equal(expected, actual);
         }
@@ -150,7 +148,7 @@ namespace mekvent.tests.Days
         public void DaySix_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Six.PartOne();
-            var input = ReadInput(6, fileNumber).Single();
+            var input = ReadInput( fileNumber).Single();
             int actual = part.NumOfFish(input);
             Assert.Equal(expected, actual);
         }
@@ -161,7 +159,7 @@ namespace mekvent.tests.Days
         public void DaySix_PartTwo(int fileNumber, decimal expected)
         {
             var part = new mekvent.Days.Six.PartTwo();
-            var input = ReadInput(6, fileNumber).Single();
+            var input = ReadInput( fileNumber).Single();
             decimal actual = part.NumOfFish(input);
             Assert.Equal(expected, actual);            
         }
@@ -176,7 +174,7 @@ namespace mekvent.tests.Days
         public void DaySeven_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Seven.PartOne();
-            var input = ReadInput(7, fileNumber).Single();
+            var input = ReadInput( fileNumber).Single();
             var actual = part.MinFuelCost(input);
             Assert.Equal(expected, actual);    
         }
@@ -187,7 +185,7 @@ namespace mekvent.tests.Days
         public void DaySeven_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Seven.PartTwo();
-            var input = ReadInput(7, fileNumber).Single();
+            var input = ReadInput( fileNumber).Single();
             var actual = part.MinFuelCost(input);
             Assert.Equal(expected, actual);    
         }
@@ -202,7 +200,7 @@ namespace mekvent.tests.Days
         public void DayNine_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Nine.PartOne();
-            var input = ReadInput(9, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateRiskLevel(input);
             Assert.Equal(expected, actual);    
         }
@@ -213,7 +211,7 @@ namespace mekvent.tests.Days
         public void DayNine_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Nine.PartTwo();
-            var input = ReadInput(9, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateBasinSize(input);
             Assert.Equal(expected, actual);    
         }
@@ -228,7 +226,7 @@ namespace mekvent.tests.Days
         public void DayTen_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Ten.PartOne();
-            var input = ReadInput(10, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateSyntaxErrorScore(input);
             Assert.Equal(expected, actual); 
         }
@@ -239,7 +237,7 @@ namespace mekvent.tests.Days
         public void DayTen_PartTwo(int fileNumber, decimal expected)
         {
             var part = new mekvent.Days.Ten.PartTwo();
-            var input = ReadInput(10, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.FindMiddleCompletionScore(input);
             Assert.Equal(expected, actual); 
         }
@@ -255,7 +253,7 @@ namespace mekvent.tests.Days
         public void DayEleven_PartOne(int fileNumber, int expected, int numFlashes)
         {
             var part = new mekvent.Days.Eleven.PartOne();
-            var input = ReadInput(11, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.CalculateTotalFlashes(input, numFlashes);
             Assert.Equal(expected, actual); 
         }
@@ -267,7 +265,7 @@ namespace mekvent.tests.Days
         public void DayEleven_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Eleven.PartTwo();
-            var input = ReadInput(11, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.FirstSimultaneousFlashStep(input);
             Assert.Equal(expected, actual); 
         }
@@ -284,7 +282,7 @@ namespace mekvent.tests.Days
         public void DayTwelve_PartOne(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Twelve.PartOne();
-            var input = ReadInput(12, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetNumRoutes(input);
             Assert.Equal(expected, actual);
         }
@@ -297,8 +295,33 @@ namespace mekvent.tests.Days
         public void DayTwelve_PartTwo(int fileNumber, int expected)
         {
             var part = new mekvent.Days.Twelve.PartTwo();
-            var input = ReadInput(12, fileNumber);
+            var input = ReadInput(fileNumber);
             var actual = part.GetNumRoutes(input);
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion
+
+        #region Day Thirteen
+
+        [Theory]
+        [InlineData(1, 17)]
+        [InlineData(2, 638)]
+        public void DayThirteen_PartOne(int fileNumber, int expected)
+        {
+            var part = new mekvent.Days.Thirteen.PartOne();
+            var input = ReadInput(fileNumber);
+            var actual = part.GetVisibleDots(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(2, "cjckbapb")]
+        public void DayThirteen_PartTwo(int fileNumber, string expected)
+        {
+            var part = new mekvent.Days.Thirteen.PartTwo();
+            var input = ReadInput(fileNumber);
+            var actual = part.GetCode(input);
             Assert.Equal(expected, actual);
         }
 

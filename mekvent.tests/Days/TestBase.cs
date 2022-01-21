@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Xunit.Abstractions;
 
 namespace mekvent.tests.Days
@@ -28,57 +30,25 @@ namespace mekvent.tests.Days
             _output.WriteLine(_textWriter.ToString());
             Console.SetOut(_originalOut);
         }
-
-        private static string[] _numToWord = new string[]
-        {
-            "Zero",
-            "One",
-            "Two",
-            "Three",
-            "Four",
-            "Five",
-            "Six",
-            "Seven",
-            "Eight",
-            "Nine",
-            "Ten",
-            "Eleven",
-            "Twelve",
-            "Thirteen",
-            "Fourteen",
-            "Fifteen",
-            "Sixteen",
-            "Seventeen",
-            "Eighteen",
-            "Nineteen",
-            "Twenty"
-        };
-
-        private string GetDayAsWord(int day)
-        {
-            if(day < 0)
-            {
-                throw new Exception("Day must be zero or more");
-            }
-
-            if(day >= _numToWord.Length)
-            {
-                throw new Exception($"Could not translate day number {day} to the word");
-            }
-
-            return _numToWord[day];
-        }
-
-        private string ResolveFileName(int day, int fileNumber)
-        {
-            string dayWord = GetDayAsWord(day);
-            string fileName = $"{dayWord.ToLower()}_{fileNumber}.txt";
-            return Path.Combine("Days", "inputs", fileName);
-        }
         
-        protected List<string> ReadInput(int day, int fileNumber)
+        private static Regex _methodRegex = new Regex(@"^Day(?<day>\w+)_Part(One|Two)$");
+        protected List<string> ReadInput(int fileNumber, [CallerMemberName] string memberName = "")
         {
-            string filePath = ResolveFileName(day, fileNumber);
+            // Pro tip: don't do this in real life
+            string ExtractDay(string methodName)
+            {
+                Match m = _methodRegex.Match(methodName);
+                if(!m.Success)
+                {
+                    throw new Exception($"Could not extract day out of method name '{methodName}'");
+                }
+                
+                return m.Groups[_methodRegex.GroupNumberFromName("day")].Value;
+            }
+
+            string day = ExtractDay(memberName);
+            string fileName = $"{day.ToLower()}_{fileNumber}.txt";
+            string filePath = Path.Combine("Days", "inputs", fileName);
             var lines = File.ReadAllLines(filePath);
             return lines.ToList();
         }
